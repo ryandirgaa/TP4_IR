@@ -12,12 +12,9 @@ BSBI_instance = BSBIIndex(data_dir = 'collection', \
                           output_dir = 'index')
 
 class my_dictionary(dict): 
-  
-    # __init__ function 
     def __init__(self): 
         self = dict() 
           
-    # Function to add key:value 
     def add(self, key, value): 
         self[key] = value 
 
