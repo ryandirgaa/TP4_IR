@@ -39,12 +39,12 @@ def searchr():
 	if request.method == "POST":
 		query = request.form["query"]
 		retrieve = BSBI_instance.retrieve_tfidf(query, k = 10)
-		title = [i[1] for i in retrieve]
+		# title = [i[1] for i in retrieve]
 		content = print_content(title)
 		results = my_dictionary()
 
 		for i in range(len(retrieve)):
-			results.add(title[i], content[i])
+			results.add(([i[1] for i in retrieve][i]), content[i])
 
 		return redirect(url_for("searchr"))
 
