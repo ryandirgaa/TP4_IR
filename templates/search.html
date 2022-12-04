@@ -1,0 +1,91 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search results</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+</head>
+<style>
+    body{
+        background: rgb(30, 30, 30);
+        color: white;
+    }
+    .searchbar{
+        margin-left: 20px;
+        width: 100%;
+    }
+
+    .bar{
+        border-radius: 40px;
+        background: transparent;
+        color: white;
+        padding: 10px 20px;
+        outline: none;
+        border: 2px solid rgb(80, 80, 80);
+        width: 650px;
+    }
+
+    .results {
+        margin: 50px 400px 50px 180px;
+    }
+
+    .box{
+        display: flex;
+        padding: 25px;
+        border-bottom: 1px solid rgb(80, 80, 80);
+    }
+
+    .title{
+        margin-top: 10px;
+    }
+
+    .title h1{
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    .title h1 span{
+        color: rgb(0, 140, 91);
+    }
+</style>
+<body>
+    <form action="/search" method="POST">
+        <form action="#" method="POST">
+            <div class="box">
+                <div class="title">
+                    <h1>Mbah<span>Sehat</span></h1>
+                </div>
+                <div class="searchbar">
+                    <input name="query" type="text submit" placeholder="Search the web" class="bar" value="{{query}}" required>
+                </div>
+            </div>
+            
+        </form>
+    </form>
+    <hr>
+    <div class="results">
+        {% for key in results %}
+            <p style="font-weight: 600;">{{ key }}</p>
+            <p>{{ results[key] }}</p>
+            <br>
+        {% endfor %}
+    </div>
+    <br><br>
+
+    <footer class="page-footer font-small gray">
+        <div class="footer-copyright text-center py-3">© 2022 Copyright
+            <a href="/">Ryan Dirga</a>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</html>
+{% endblock %}
