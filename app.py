@@ -30,25 +30,25 @@ def index():
 	return render_template("index.html")
 
 
-# @app.route("/search", methods=["POST", "GET"])
-# def searchr():
-# 	global query
-# 	global title
-# 	global results
+@app.route("/search", methods=["POST", "GET"])
+def searchr():
+	global query
+	global title
+	global results
 
-# 	if request.method == "POST":
-# 		query = request.form["query"]
-# 		retrieve = BSBI_instance.retrieve_tfidf(query, k = 10)
-# 		# title = [i[1] for i in retrieve]
-# 		content = print_content(title)
-# 		results = my_dictionary()
+	if request.method == "POST":
+		query = request.form["query"]
+		retrieve = BSBI_instance.retrieve_tfidf(query, k = 10)
+		title = [i[1] for i in retrieve]
+		content = print_content(title)
+		results = my_dictionary()
 
-# 		for i in range(len(retrieve)):
-# 			results.add(([i[1] for i in retrieve][i]), content[i])
+		for i in range(len(retrieve)):
+			results.add(title[i], content[i])
 
-# 		return redirect(url_for("searchr"))
+		return redirect(url_for("searchr"))
 
-# 	return render_template("search.html", title=title, results=results, query=query)
+	return render_template("search.html", title=title, results=results, query=query)
 
 
 if __name__ == '__main__':
